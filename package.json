@@ -6,10 +6,10 @@
     "repository": "https://github.com/dbtk2comstar/lit-element-template-project.git",
     "scripts": {
         "powershell": "powershell",
-        "copyindex": "npm run powershell -and copy src/index.html build",
+        "copyindex": "npm run powershell -and copy ./src/index.html ./build/index.html",
         "copywc": "cp -r node_modules/@webcomponents/webcomponentsjs/bundles build -and cp node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js build",
-        "build": " npm run copyindex && rollup -c",
-        "buildWithWC": "npm run copyindex && npm run copywc && rollup -c",
+        "build": "rollup -c && npm run-script copyindex ",
+        "buildWithWC": "rollup -c && npm run copyindex && npm run copywc",
         "start": "hs ./build/ -o",
         "before-watch": "npm run copyindex",
         "watch": "rollup -c -w"
